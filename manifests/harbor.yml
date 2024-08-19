@@ -15,7 +15,5 @@ spec:
       releaseName: harbor
       values: |
         expose:
-          type: nodePort
-          tls:
-            enabled: true
+          type: clusterIP
   project: default
