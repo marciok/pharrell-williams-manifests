@@ -11,6 +11,13 @@ spec:
     repoURL: https://helm.goharbor.io
     targetRevision: 1.15.0
     chart: harbor
+    helm:
+      valuesObjects:
+      expose:
+        type: nodePort
+        tls:
+          enabled: false
+
   project: default
   syncPolicy:
     automated:
