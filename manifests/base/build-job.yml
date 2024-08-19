@@ -17,11 +17,11 @@ spec:
               cd /tmp/repo && \
               echo "Building Docker image..." && \
               docker build -t myapp:$(GIT_BRANCH) . && \
-              echo "Logging into Harbor registry..." && \
-              docker login $(IMAGE_HOST) -u harbor_registry_user -p harbor_registry_password && \
+              echo "Logging into Harbor registry... static ip" && \
+              docker login 10.245.251.103:5000 -u harbor_registry_user -p harbor_registry_password && \
               echo "Tagging and pushing the image..." && \
-              docker tag myapp:$(GIT_BRANCH) $(IMAGE_HOST)/your-image:$(GIT_BRANCH) && \
-              docker push $(IMAGE_HOST)/your-image:$(GIT_BRANCH)
+              docker tag myapp:$(GIT_BRANCH) 10.245.251.103:5000/your-image:$(GIT_BRANCH) && \
+              docker push 10.245.251.103:5000/your-image:$(GIT_BRANCH)
           volumeMounts:
             - name: docker-socket
               mountPath: /var/run/docker.sock
