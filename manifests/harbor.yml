@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: goharbor
+  name: harbor/harbor
   namespace: devops-pipeline
 spec:
   project: default
@@ -11,11 +11,11 @@ spec:
       tls:
         enabled: false
   source:
-    chart: harbor
+    chart: harbor/harbor
     repoURL: https://helm.goharbor.io
     targetRevision: 1.15.0
     helm:
-      releaseName: harbor
+      releaseName: harbor/harbor
   destination:
     server: "https://kubernetes.default.svc"
     namespace: devops-pipeline
