@@ -18,7 +18,7 @@ spec:
               docker build -t myapp:$(GIT_BRANCH) . && \
               echo "Logging into Harbor registry..." && \
               echo "ARE YOU SEEING THIS 3?"
-              docker login ${IMAGE_HOST) -u harbor_registry_user -p harbor_registry_password && \
+              docker login $(IMAGE_HOST) -u harbor_registry_user -p harbor_registry_password && \
               echo "Tagging and pushing the image..." && \
               docker tag myapp:$(GIT_BRANCH) $(IMAGE_HOST)/your-image:$(GIT_BRANCH) && \
               docker push $(IMAGE_HOST)/your-image:$(GIT_BRANCH)
