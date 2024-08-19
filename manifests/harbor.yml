@@ -11,11 +11,13 @@ spec:
     repoURL: https://helm.goharbor.io
     targetRevision: 1.15.0
     chart: harbor
-    helm:
-      valueFiles:
-        - harbor-values.yml
   project: default
   syncPolicy:
     automated:
       prune: false
       selfHeal: false
+source:
+  helm:
+    valuesObjects:
+    expose:
+      type: clusterIP
