@@ -19,7 +19,3 @@ spec:
           tls:
             enabled: false
   project: default
-  syncPolicy:
-    automated:
-      prune: false
-      selfHeal: false
