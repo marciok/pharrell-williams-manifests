@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: harbor
+  namespace: devops-pipeline
 spec:
   destination:
     namespace: devops-pipeline
