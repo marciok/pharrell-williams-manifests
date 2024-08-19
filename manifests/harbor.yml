@@ -13,7 +13,7 @@ spec:
     chart: harbor
     heml:
       valueFiles:
-        - ./harbor-values.yaml
+        - harbor-values.yaml
   project: default
   syncPolicy:
     automated:
