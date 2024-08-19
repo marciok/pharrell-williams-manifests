@@ -9,12 +9,12 @@ configMapGenerator:
     namespace: devops-pipeline
     literals:
       - GIT_BRANCH=smash-mouth
-      - IMAGE_HOST=harbor.comparacar.dev
+      - IMAGE_HOST=harbor-registry.devops-pipeline.svc.cluster.local
     options:
       disableNameSuffixHash: true
 images:
   - name: myapp-container
-    newName: harbor.comparacar.dev/your-image
+    newName: harbor-registry.devops-pipeline.svc.cluster.local/your-image
     newTag: smash-mouth
 patches:
   - target:
