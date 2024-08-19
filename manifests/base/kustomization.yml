@@ -1,0 +1,4 @@
+resources:
+  - deployment.yml
+  - build-job.yml
+  - service.yml
