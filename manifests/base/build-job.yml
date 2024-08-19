@@ -19,14 +19,14 @@ spec:
 
               # Add the insecure registry to Docker daemon configuration
               echo "Updating Docker daemon configuration for insecure registry..."
-              sudo mkdir -p /etc/docker
+              mkdir -p /etc/docker
               echo '{
                 "insecure-registries": ["10.245.251.103:5000"]
-              }' | sudo tee /etc/docker/daemon.json
+              }' > /etc/docker/daemon.json
 
               # Restart Docker to apply the new settings
               echo "Restarting Docker service..."
-              sudo systemctl restart docker
+              systemctl restart docker
 
               # Log in to the Harbor registry
               echo "Logging into Harbor registry..."
