@@ -8,11 +8,11 @@ spec:
     spec:
       containers:
       - name: podman
-        image: quay.io/podman/stable:latest  # Use the official Podman image
+        image: quay.io/podman/stable:latest  # Using Podman image
         command: ["/bin/sh", "-c"]
         args:
           - |
-            # Set up Podman with the necessary environment variables
+            apt-get update && apt-get install -y git
             export REGISTRY=http://10.245.251.103:5000
             export IMAGE_NAME=myapp:latest
             export PROJECT=project
@@ -29,3 +29,11 @@ spec:
             podman tag ${IMAGE_NAME} ${REGISTRY}/${PROJECT}/${IMAGE_NAME}
             podman push ${REGISTRY}/${PROJECT}/${IMAGE_NAME}
       restartPolicy: Never
+      securityContext:
+        runAsUser: 0  # Run as root to avoid permission issues with storage mounts
+      volumes:
+      - name: varlibcontainers
+        emptyDir: {}
+      volumeMounts:
+      - mountPath: /var/lib/containers
+        name: varlibcontainers
