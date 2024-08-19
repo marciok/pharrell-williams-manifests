@@ -10,4 +10,4 @@
             service:
               name: smash-mouth-myapp
               port:
-                number: 3000
+                number: 8080
