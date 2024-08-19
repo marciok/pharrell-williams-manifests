@@ -17,5 +17,5 @@ spec:
         expose:
           type: nodePort
           tls:
-            enabled: false
+            enabled: true
   project: default
