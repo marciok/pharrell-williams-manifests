@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
         - name: docker-build
-          image: docker:latest
+          image: docker:dind
           command: ["/bin/sh", "-c"]
           args:
             - |
@@ -17,7 +17,6 @@ spec:
               echo "Building Docker image..." && \
               docker build -t myapp:$(GIT_BRANCH) . && \
               echo "Logging into Harbor registry..." && \
-              echo "$IMAGE_HOST"
               echo "ARE YOU SEEING THIS?"
               docker login http://10.245.20.192:30002 -u harbor_registry_user -p harbor_registry_password && \
               echo "Tagging and pushing the image..." && \
