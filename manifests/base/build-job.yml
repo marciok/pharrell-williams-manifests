@@ -17,27 +17,22 @@ spec:
               echo "Building Docker image..." && \
               docker build -t myapp:$(GIT_BRANCH) . 
 
-              # Add the insecure registry to Docker daemon configuration
-              echo "Updating Docker daemon configuration for insecure registry..."
-              mkdir -p /etc/docker
-              echo '{
-                "insecure-registries": ["10.245.251.103:5000"]
-              }' > /etc/docker/daemon.json
+              # Run dockerd with insecure registry flag if it's not already managed by systemctl
+              echo "Starting Docker daemon with insecure registry..."
+              dockerd --insecure-registry 10.245.251.103:5000 &
 
-              # Restart Docker to apply the new settings
-              echo "Restarting Docker service..."
-              systemctl restart docker
+              # Wait a moment to ensure the daemon starts
+              sleep 5
 
-              # Log in to the Harbor registry
+              # Log in to the Harbor registry using --password-stdin
               echo "Logging into Harbor registry..."
-              docker login http://10.245.251.103:5000 -u harbor_registry_user -p harbor_registry_password && \
+              echo harbor_registry_password | docker login http://10.245.251.103:5000 -u harbor_registry_user --password-stdin && \
 
               # Tag and push the image
               echo "Tagging and pushing the image..."
               docker tag myapp:$(GIT_BRANCH) $(IMAGE_HOST)/your-image:$(GIT_BRANCH) && \
               docker push $(IMAGE_HOST)/your-image:$(GIT_BRANCH)
-          volumeMounts:
-            - name: docker-socket
+              - name: docker-socket
               mountPath: /var/run/docker.sock
       restartPolicy: Never
       volumes:
