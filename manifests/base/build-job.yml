@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
         - name: docker-build
-          image: docker:dind
+          image: docker:latest
           command: ["/bin/sh", "-c"]
           args:
             - |
@@ -22,6 +22,9 @@ spec:
               echo "Tagging and pushing the image..." && \
               docker tag myapp:$(GIT_BRANCH) $(IMAGE_HOST)/your-image:$(GIT_BRANCH) && \
               docker push $(IMAGE_HOST)/your-image:$(GIT_BRANCH)
+          env:
+            - name: DOCKER_OPTS
+              value: --insecure-registry 10.245.20.192:30002
           volumeMounts:
             - name: docker-socket
               mountPath: /var/run/docker.sock
