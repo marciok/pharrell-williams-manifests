@@ -1,6 +1,7 @@
 resources:
   - ingress.yml
   - overlay/smash-mouth
+  - harbor.yml
 patches:
   - path: overlay/smash-mouth/patch.yml
     target:
