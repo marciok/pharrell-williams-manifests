@@ -7,33 +7,26 @@ spec:
   template:
     spec:
       containers:
-      - name: podman
-        image: quay.io/podman/stable:latest  # Using Podman image
-        command: ["/bin/sh", "-c"]
-        args:
-          - |
-            apt-get update && apt-get install -y git
-            export REGISTRY=http://10.245.251.103:5000
-            export IMAGE_NAME=myapp:latest
-            export PROJECT=project
-
-            # Clone the repository and build the image
-            git clone --single-branch --branch $(GIT_BRANCH) https://github.com/marciok/sample-app-docker.git /tmp/repo
-            cd /tmp/repo
-            podman build -t ${IMAGE_NAME} .
-
-            # Login to the registry
-            podman login --username=harbor_registry_user --password=harbor_registry_password ${REGISTRY}
-
-            # Tag and push the image
-            podman tag ${IMAGE_NAME} ${REGISTRY}/${PROJECT}/${IMAGE_NAME}
-            podman push ${REGISTRY}/${PROJECT}/${IMAGE_NAME}
+        - name: docker-build
+          image: docker:dind
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              DOCKER_OPTS="--insecure-registry=$(IMAGE_HOST)"
+              git clone --single-branch --branch $(GIT_BRANCH) https://github.com/marciok/sample-app-docker.git /tmp/repo && \
+              cd /tmp/repo && \
+              echo "Building Docker image..." && \
+              docker build -t myapp:$(GIT_BRANCH) . && \
+              echo "Logging into Harbor registry... disbled verify" && \
+              docker --tlsverify=false login 10.245.251.103:5000 -u harbor_registry_user -p harbor_registry_password && \
+              echo "Tagging and pushing the image..." && \
+              docker tag myapp:$(GIT_BRANCH) $(IMAGE_HOST)/your-image:$(GIT_BRANCH) && \
+              docker push $(IMAGE_HOST)/your-image:$(GIT_BRANCH)
+          volumeMounts:
+            - name: docker-socket
+              mountPath: /var/run/docker.sock
       restartPolicy: Never
-      securityContext:
-        runAsUser: 0  # Run as root to avoid permission issues with storage mounts
       volumes:
-      - name: varlibcontainers
-        emptyDir: {}
-      volumeMounts:
-      - mountPath: /var/lib/containers
-        name: varlibcontainers
+        - name: docker-socket
+          hostPath:
+            path: /var/run/docker.sock
