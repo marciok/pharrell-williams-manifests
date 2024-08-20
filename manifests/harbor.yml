@@ -14,9 +14,12 @@ spec:
     helm:
       releaseName: harbor
       values: |
-        externalURL: https://harbor.comparacar.dev
+        externalURL: https://harbor
         expose:
-          ingress: 
-            hosts:
-              core: harbor.comparacar.dev
+          type: clusterIP
+          clusterIP:
+            name: harbor
+          tls:
+            auto:
+              commonName: harbor
   project: default
