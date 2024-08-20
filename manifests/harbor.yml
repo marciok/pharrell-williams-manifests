@@ -18,5 +18,5 @@ spec:
           type: clusterIP
           tls:
             auto:
-              commonName: harbor.devops-pipeline.svc.cluster.local
+              commonName: harbor
   project: default
