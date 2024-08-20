@@ -9,12 +9,12 @@ configMapGenerator:
     namespace: devops-pipeline
     literals:
       - GIT_BRANCH=smash-mouth
-      - IMAGE_HOST=10.245.251.103:5000
+      - IMAGE_HOST=10.245.98.116:5000
     options:
       disableNameSuffixHash: true
 images:
   - name: myapp-container
-    newName: 10.245.20.192/my-app
+    newName: 10.245.98.116/my-app
     newTag: smash-mouth
 patches:
   - target:
