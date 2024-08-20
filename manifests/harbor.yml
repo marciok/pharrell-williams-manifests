@@ -14,6 +14,8 @@ spec:
     helm:
       releaseName: harbor
       values: |
+        internalTLS:
+          enabled: true
         expose:
           type: clusterIP
           tls:
