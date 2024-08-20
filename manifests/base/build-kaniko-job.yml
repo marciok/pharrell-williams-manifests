@@ -14,11 +14,10 @@ spec:
           "--context=git://github.com/marciok/sample-app-docker.git",
           "--destination=10.245.251.103:5000/my-app:latest",
           "--insecure-registry=10.245.251.103:5000",
-          "--skip-push-permission-check=true"
         ]
         volumeMounts:
         - name: docker-config
-          mountPath: /kaniko/.docker/config.json
+          mountPath: /kaniko/.docker/
       restartPolicy: Never
       volumes:
       - name: docker-config
