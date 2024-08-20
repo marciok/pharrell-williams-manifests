@@ -12,7 +12,7 @@ spec:
         image: gcr.io/kaniko-project/executor:debug
         command: ["/bin/sh", "-c"]
         args: [
-          "/kaniko/executor --context=git://github.com/marciok/sample-app-docker.git --destination=127.0.0.1:30003/library/my-app:${GIT_BRANCH} --skip-tls-verify"
+          "/kaniko/executor --context=git://github.com/marciok/sample-app-docker.git --destination=10.245.20.5:30003/library/my-app:${GIT_BRANCH} --skip-tls-verify"
         ]
         volumeMounts:
         - name: docker-config
