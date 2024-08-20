@@ -13,10 +13,7 @@ spec:
         args: [
           "--context=git://github.com/marciok/sample-app-docker.git",
           "--destination=10.245.251.103:5000/my-app:latest",
-          "--insecure-registry=10.245.251.103:5000",
-          "--docker-username=harbor_registry_user",
-          "--docker-password=harbor_registry_password"
-
+          "--insecure-registry=10.245.251.103:5000"
         ]
         volumeMounts:
         - name: docker-config
