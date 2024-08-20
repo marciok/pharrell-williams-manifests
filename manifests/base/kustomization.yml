@@ -1,4 +1,4 @@
 resources:
   - deployment.yml
-  - build-job.yml
+  - build-kaniko-job.yml
   - service.yml
