@@ -18,5 +18,5 @@ spec:
           type: clusterIP
           tls:
             auto:
-              comronName: comparacar-registry
+              commonName: comparacar-registry
   project: default
