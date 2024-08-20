@@ -14,7 +14,7 @@ configMapGenerator:
       disableNameSuffixHash: true
 images:
   - name: myapp-container
-    newName: harbor-registry.devops-pipeline.svc.cluster.local:5443/my-app
+    newName: harbor-registry:5443/my-app
     newTag: smash-mouth
 patches:
   - target:
