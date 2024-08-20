@@ -11,7 +11,6 @@ spec:
       - name: kaniko
         image: gcr.io/kaniko-project/executor:debug
         args: [
-          "--dockerfile=/workspace/Dockerfile",
           "--context=git://github.com/marciok/sample-app-docker.git",
           "--destination=10.245.251.103:5000/my-app:latest",
           "--insecure-registry=10.245.251.103:5000"
