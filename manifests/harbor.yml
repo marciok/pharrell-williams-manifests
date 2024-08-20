@@ -11,4 +11,11 @@ spec:
     repoURL: https://helm.goharbor.io
     targetRevision: 1.15.0
     chart: harbor
+    helm:
+      releaseName: harbor
+      values: |
+        expose:
+          ingress:
+            hosts:
+              core: harbor.comparacar.dev
   project: default
