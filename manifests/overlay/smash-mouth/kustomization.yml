@@ -14,7 +14,7 @@ configMapGenerator:
       disableNameSuffixHash: true
 images:
   - name: myapp-container
-    newName: 127.0.0.1/library/my-app
+    newName: 10.245.20.5:30003/library/my-app
     newTag: smash-mouth
 patches:
   - target:
