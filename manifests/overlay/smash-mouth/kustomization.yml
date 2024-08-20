@@ -14,7 +14,7 @@ configMapGenerator:
       disableNameSuffixHash: true
 images:
   - name: myapp-container
-    newName: harbor-registry/my-app
+    newName: tcp://harbor-registry/my-app
     newTag: smash-mouth
 patches:
   - target:
