@@ -14,14 +14,9 @@ spec:
     helm:
       releaseName: harbor
       values: |
-        externalURL: https://127.0.0.1:30003
+        externalURL: https://harbor.comparacar.dev
         expose:
-          type: nodePort
-          tls:
-            auto:
-              commonName: 127.0.0.1
-          nodePort:
-            ports:
-              https:
-                nodePort: 30003
+          ingress: 
+            hosts:
+              core: harbor.comparacar.dev
   project: default
