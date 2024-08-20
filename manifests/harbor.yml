@@ -18,5 +18,5 @@ spec:
           type: clusterIP
           tls:
             auto:
-              commonName: comparacar-registry
+              commonName: harbor.devops-pipeline.svc.cluster.local
   project: default
