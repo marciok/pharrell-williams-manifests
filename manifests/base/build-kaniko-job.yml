@@ -19,10 +19,11 @@ spec:
 
         ]
         volumeMounts:
-        - name: kaniko-secret
+        - name: docker-config
           mountPath: /kaniko/.docker
+          subPath: config.json
       restartPolicy: Never
       volumes:
-      - name: kaniko-secret
+      - name: docker-config
         secret:
-          secretName: kaniko-secret
+          secretName: kaniko-docker-config
