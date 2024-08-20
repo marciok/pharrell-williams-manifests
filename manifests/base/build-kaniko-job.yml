@@ -13,7 +13,8 @@ spec:
         args: [
           "--context=git://github.com/marciok/sample-app-docker.git",
           "--destination=10.245.251.103:5000/my-app:latest",
-          "--insecure-registry=10.245.251.103:5000"
+          "--insecure-registry=10.245.251.103:5000",
+          "--skip-push-permission-check=true"
         ]
         volumeMounts:
         - name: docker-config
