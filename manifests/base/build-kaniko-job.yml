@@ -12,7 +12,7 @@ spec:
         image: gcr.io/kaniko-project/executor:debug
         command: ["/bin/sh", "-c"]
         args: [
-          "kaniko executor --context=git://github.com/marciok/sample-app-docker.git --destination=10.245.251.103:5000/my-app:${GIT_BRANCH} --insecure-registry=10.245.251.103:5000"
+          "/kaniko/executor --context=git://github.com/marciok/sample-app-docker.git --destination=10.245.251.103:5000/my-app:${GIT_BRANCH} --insecure-registry=10.245.251.103:5000"
         ]
         volumeMounts:
         - name: docker-config
