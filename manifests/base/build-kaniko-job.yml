@@ -13,7 +13,10 @@ spec:
         args: [
           "--context=git://github.com/marciok/sample-app-docker.git",
           "--destination=10.245.251.103:5000/my-app:latest",
-          "--insecure-registry=10.245.251.103:5000"
+          "--insecure-registry=10.245.251.103:5000",
+          "--docker-user=harbor_registry_user",
+          "--docker-password=harbor_registry_password"
+
         ]
         volumeMounts:
         - name: kaniko-secret
