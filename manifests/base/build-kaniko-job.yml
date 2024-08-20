@@ -20,8 +20,7 @@ spec:
         ]
         volumeMounts:
         - name: docker-config
-          mountPath: /kaniko/.docker
-          subPath: config.json
+          mountPath: /kaniko/.docker/config.json
       restartPolicy: Never
       volumes:
       - name: docker-config
