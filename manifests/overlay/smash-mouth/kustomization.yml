@@ -15,7 +15,6 @@ configMapGenerator:
 images:
   - name: myapp-container
     newName: harbor.devops-pipeline.svc.cluster.local/my-app
-    newName: 10.245.199.74:5443/my-app
     newTag: smash-mouth
 patches:
   - target:
