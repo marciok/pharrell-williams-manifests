@@ -18,5 +18,3 @@ spec:
           image: myapp-container
           ports:
             - containerPort: 8080
-      imagePullSecrets:
-        - name: regcred # Only if pulling from a private registry
