@@ -14,11 +14,9 @@ spec:
     helm:
       releaseName: harbor
       values: |
-        internalTLS:
-          enabled: true
         expose:
           type: clusterIP
           tls:
             auto:
-              commonName: harbor.comparacar.dev
+              comronName: comparacar-registry
   project: default
