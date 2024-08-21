@@ -2,6 +2,7 @@ resources:
   - ingress.yml
   - overlay/blink-182
   - nginx-chart.yml
+  - external-dns-chart.yml
 patches:
   - path: overlay/blink-182/patch.yml
     target:
