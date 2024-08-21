@@ -1,7 +1,7 @@
 - op: add
   path: /spec/rules/-
   value:
-    host: blink-182.comparacar.dev
+    host: blink-182.melhorbanco.digital
     http:
       paths:
         - path: /
