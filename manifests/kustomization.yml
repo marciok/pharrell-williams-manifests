@@ -1,6 +1,7 @@
 resources:
   - ingress.yml
   - overlay/blink-182
+  - overlay/holly-tree
   - nginx-chart.yml
   - external-dns-chart.yml
 patches:
