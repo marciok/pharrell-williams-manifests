@@ -7,7 +7,4 @@ spec:
   selector:
     app: myapp
   ports:
-    - protocol: TCP
-      port: 80 # The port that the service will be exposed on
-      targetPort: 8080 # The port that the container listens on
-  type: LoadBalancer # Use ClusterIP since we’ll expose it via Ingress
+    - port: 80 
