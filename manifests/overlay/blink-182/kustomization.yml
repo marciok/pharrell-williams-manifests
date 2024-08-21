@@ -9,3 +9,11 @@ images:
   - name: myapp-container
     newName: ghcr.io/marciok/sample-app-docker
     newTag: blink-182
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: blink-182.melhorbanco.digital
