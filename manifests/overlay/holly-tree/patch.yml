@@ -1,0 +1,13 @@
+- op: add
+  path: /spec/rules/-
+  value:
+    host: holly-tree.melhorbanco.digital
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: holly-tree-service
+              port:
+                number: 8080

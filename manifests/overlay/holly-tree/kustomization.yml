@@ -1,0 +1,11 @@
+resources:
+  - ../../base
+namePrefix: holly-tree-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: holly-tree
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: holly-tree
