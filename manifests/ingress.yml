@@ -4,6 +4,6 @@ metadata:
   name: myapp-ingress
   namespace: devops-pipeline
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
 spec:
   rules: []
