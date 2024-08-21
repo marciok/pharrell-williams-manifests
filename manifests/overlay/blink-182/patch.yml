@@ -8,6 +8,6 @@
           pathType: Prefix
           backend:
             service:
-              name: blink-182-myapp
+              name: blink-182-service
               port:
                 number: 8080
