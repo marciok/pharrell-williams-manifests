@@ -16,7 +16,7 @@ spec:
             enabled: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: ingress-nginx
+    namespace: devops-pipeline
   syncPolicy:
     automated:
       prune: true
