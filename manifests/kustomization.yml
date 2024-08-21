@@ -1,7 +1,6 @@
 resources:
   - ingress.yml
   - overlay/blink-182
-  - harbor.yml
 patches:
   - path: overlay/blink-182/patch.yml
     target:
