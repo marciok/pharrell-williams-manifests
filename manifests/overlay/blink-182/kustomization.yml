@@ -2,41 +2,10 @@ resources:
   - ../../base
 namePrefix: blink-182-
 labels:
-  - pairs:
+  - includeSelectors: true
+    pairs:
       app: blink-182
-configMapGenerator:
-  - name: env
-    namespace: devops-pipeline
-    literals:
-      - GIT_BRANCH=blink-182
-    options:
-      disableNameSuffixHash: true
 images:
   - name: myapp-container
     newName: ghcr.io/marciok/sample-app-docker
     newTag: blink-182
-patches:
-  - target:
-      kind: Job
-    patch: |-
-      - op: add
-        path: /spec/template/spec/containers/0/envFrom
-        value:
-          - configMapRef:
-              name: blink-182-env
-  # - target:
-  #     kind: Ingress
-  #   patch: |-
-  #     - op: add
-  #       path: /spec/rules/-
-  #       value:
-  #         host: blink-182.comparacar-dev.com.br
-  #         http:
-  #           paths:
-  #             - path: /
-  #               pathType: Prefix
-  #               backend:
-  #                 service:
-  #                   name: blink-182-myapp
-  #                   port:
-  #                     number: 3000
