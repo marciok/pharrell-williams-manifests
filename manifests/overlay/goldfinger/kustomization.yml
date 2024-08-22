@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+namePrefix: goldfinger-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: goldfinger
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: goldfinger
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: goldfinger.melhorbanco.digital
