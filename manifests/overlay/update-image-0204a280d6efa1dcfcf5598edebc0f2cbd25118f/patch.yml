@@ -1,0 +1,13 @@
+- op: add
+  path: /spec/rules/-
+  value:
+    host: update-image-0204a280d6efa1dcfcf5598edebc0f2cbd25118f.melhorbanco.digital
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: update-image-0204a280d6efa1dcfcf5598edebc0f2cbd25118f-service
+              port:
+                number: 8080

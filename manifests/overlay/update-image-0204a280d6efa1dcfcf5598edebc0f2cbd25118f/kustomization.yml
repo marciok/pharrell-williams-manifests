@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+namePrefix: update-image-0204a280d6efa1dcfcf5598edebc0f2cbd25118f-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: update-image-0204a280d6efa1dcfcf5598edebc0f2cbd25118f
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: update-image-0204a280d6efa1dcfcf5598edebc0f2cbd25118f
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: update-image-0204a280d6efa1dcfcf5598edebc0f2cbd25118f.melhorbanco.digital
