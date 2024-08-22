@@ -4,17 +4,12 @@ resources:
   - overlay/holly-tree
   - nginx-chart.yml
   - external-dns-chart.yml
-  - overlay/post-malone
 patches:
   - path: overlay/holly-tree/patch.yml
     target:
       kind: Ingress
       name: myapp-ingress
   - path: overlay/blink-182/patch.yml
-    target:
-      kind: Ingress
-      name: myapp-ingress
-  - path: overlay/post-malone/patch.yml
     target:
       kind: Ingress
       name: myapp-ingress
