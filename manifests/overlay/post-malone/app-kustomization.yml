@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+namePrefix: post-malone-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: post-malone
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: post-malone
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: post-malone.melhorbanco.digital
