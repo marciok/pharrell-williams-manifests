@@ -8,6 +8,7 @@ resources:
   - overlay/street-light-manifesto
   - overlay/goldfinger
   - overlay/test-lifecycle
+  - overlay/test-teardown-preview
 patches:
   - path: overlay/holly-tree/patch.yml
     target:
@@ -30,6 +31,10 @@ patches:
       kind: Ingress
       name: myapp-ingress
   - path: overlay/test-lifecycle/patch.yml
+    target:
+      kind: Ingress
+      name: myapp-ingress
+  - path: overlay/test-teardown-preview/patch.yml
     target:
       kind: Ingress
       name: myapp-ingress
