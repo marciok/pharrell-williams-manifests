@@ -9,6 +9,7 @@ resources:
   - overlay/goldfinger
   - overlay/test-lifecycle
   - overlay/test-teardown-preview
+  - overlay/lookup-dns
 patches:
   - path: overlay/holly-tree/patch.yml
     target:
@@ -35,6 +36,10 @@ patches:
       kind: Ingress
       name: myapp-ingress
   - path: overlay/test-teardown-preview/patch.yml
+    target:
+      kind: Ingress
+      name: myapp-ingress
+  - path: overlay/lookup-dns/patch.yml
     target:
       kind: Ingress
       name: myapp-ingress
