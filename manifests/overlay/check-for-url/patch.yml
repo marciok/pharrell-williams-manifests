@@ -1,0 +1,13 @@
+- op: add
+  path: /spec/rules/-
+  value:
+    host: check-for-url.melhorbanco.digital
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: check-for-url-service
+              port:
+                number: 8080
