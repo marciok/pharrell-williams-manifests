@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+namePrefix: fix-check-url-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: fix-check-url
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: fix-check-url
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: fix-check-url.melhorbanco.digital
