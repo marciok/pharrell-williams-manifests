@@ -11,6 +11,7 @@ resources:
   - overlay/test-teardown-preview
   - overlay/update-image-7d4434af76d49ae41d3ab34f1371e2730ce52604
   - overlay/update-image-0204a280d6efa1dcfcf5598edebc0f2cbd25118f
+  - overlay/add-comments--6405bc1877b9651caa6b89e158e3b516630cd249
 patches:
   - path: overlay/holly-tree/patch.yml
     target:
@@ -45,6 +46,10 @@ patches:
       kind: Ingress
       name: myapp-ingress
   - path: overlay/update-image-0204a280d6efa1dcfcf5598edebc0f2cbd25118f/patch.yml
+    target:
+      kind: Ingress
+      name: myapp-ingress
+  - path: overlay/add-comments--6405bc1877b9651caa6b89e158e3b516630cd249/patch.yml
     target:
       kind: Ingress
       name: myapp-ingress

@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+namePrefix: add-comments--6405bc1877b9651caa6b89e158e3b516630cd249-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: add-comments--6405bc1877b9651caa6b89e158e3b516630cd249
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: add-comments--6405bc1877b9651caa6b89e158e3b516630cd249
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: add-comments--6405bc1877b9651caa6b89e158e3b516630cd249.melhorbanco.digital

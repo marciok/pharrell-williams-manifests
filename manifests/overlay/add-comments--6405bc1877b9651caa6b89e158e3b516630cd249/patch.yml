@@ -1,0 +1,13 @@
+- op: add
+  path: /spec/rules/-
+  value:
+    host: add-comments--6405bc1877b9651caa6b89e158e3b516630cd249.melhorbanco.digital
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: add-comments--6405bc1877b9651caa6b89e158e3b516630cd249-service
+              port:
+                number: 8080
