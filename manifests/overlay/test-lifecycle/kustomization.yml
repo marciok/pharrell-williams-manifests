@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+namePrefix: test-lifecycle-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: test-lifecycle
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: test-lifecycle
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: test-lifecycle.melhorbanco.digital

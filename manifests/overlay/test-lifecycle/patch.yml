@@ -1,0 +1,13 @@
+- op: add
+  path: /spec/rules/-
+  value:
+    host: test-lifecycle.melhorbanco.digital
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: test-lifecycle-service
+              port:
+                number: 8080
