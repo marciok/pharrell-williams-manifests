@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+namePrefix: street-light-manifesto-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: street-light-manifesto
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: street-light-manifesto
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: street-light-manifesto.melhorbanco.digital

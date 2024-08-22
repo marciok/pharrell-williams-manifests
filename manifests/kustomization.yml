@@ -5,6 +5,7 @@ resources:
   - nginx-chart.yml
   - external-dns-chart.yml
   - overlay/post-malone
+  - overlay/street-light-manifesto
 patches:
   - path: overlay/holly-tree/patch.yml
     target:
@@ -15,6 +16,10 @@ patches:
       kind: Ingress
       name: myapp-ingress
   - path: overlay/post-malone/patch.yml
+    target:
+      kind: Ingress
+      name: myapp-ingress
+  - path: overlay/street-light-manifesto/patch.yml
     target:
       kind: Ingress
       name: myapp-ingress
