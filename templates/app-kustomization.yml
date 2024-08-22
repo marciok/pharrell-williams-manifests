@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+namePrefix: ${APP_NAME_PLACEHOLDER}-
+labels:
+  - includeSelectors: true
+    pairs:
+      app: ${APP_NAME_PLACEHOLDER}
+images:
+  - name: myapp-container
+    newName: ghcr.io/marciok/sample-app-docker
+    newTag: ${APP_NAME_PLACEHOLDER}
+patches:
+  - target:
+      kind: Service
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          external-dns.alpha.kubernetes.io/hostname: ${APP_NAME_PLACEHOLDER}.melhorbanco.digital
